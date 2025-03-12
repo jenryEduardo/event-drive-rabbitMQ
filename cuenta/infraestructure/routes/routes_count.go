@@ -18,4 +18,4 @@ func SetupRoutesCount(router *gin.Engine) {
 		routes.PUT("/:fromId/:toId",controllers.Transfering)
 		routes.PUT("/deposito/:id",controllers.Deposit)
 	}
-}
+}	

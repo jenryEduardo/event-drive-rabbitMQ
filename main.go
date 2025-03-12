@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	"time"
+
 	countsRoutes "rabbitMQ/cuenta/infraestructure/routes"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -14,11 +14,10 @@ func main(){
 
 	// Configurar CORS
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:3000","http://localhost:4200"},
-		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
+		AllowAllOrigins: true,
+		AllowMethods:    []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders:    []string{"*"},
 		AllowCredentials: true,
-		MaxAge:           12 * time.Hour,
 	}))
 
 	countsRoutes.SetupRoutesCount(router)
